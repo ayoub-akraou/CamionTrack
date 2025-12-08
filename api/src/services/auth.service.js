@@ -1,4 +1,9 @@
 import UserRepository from "../repositories/auth.repository.js";
+import bcrypt from "bcrypt";
+import jwt from "jsonwebtoken";
+import dotenv from "dotenv";
+
+dotenv.config();
 
 export default class AuthService {
   static async register(data) {
