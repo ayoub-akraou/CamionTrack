@@ -15,13 +15,13 @@ const userShema = new Schema(
         delete ret._id;
         return ret;
       },
-      //   toObject: {
-      //     transform: (_, ret) => {
-      //       ret.id = ret._id;
-      //       delete ret._id;
-      //       return ret;
-      //     },
-      //   },
+    },
+    toObject: {
+      transform: (_, ret) => {
+        ret.id = ret._id;
+        delete ret._id;
+        return ret;
+      },
     },
   }
 );
