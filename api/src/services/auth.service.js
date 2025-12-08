@@ -1,4 +1,4 @@
-import UserRepository from "../services/auth.repository.js";
+import UserRepository from "../repositories/auth.repository.js";
 
 export default class AuthService {
   static async register(data) {
