@@ -11,4 +11,15 @@ export default class AuthController {
         .json({ success: false, message: error.message });
     }
   }
+
+  static async login(req, res) {
+    try {
+      const data = await AuthService.login(req.body);
+      res.status(200).json({ success: true, data });
+    } catch (error) {
+      res
+        .status(error.statusCode || 500)
+        .json({ success: false, message: error.message });
+    }
+  }
 }
