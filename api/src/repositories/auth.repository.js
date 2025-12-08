@@ -1,4 +1,5 @@
 import UserModel from "../models/user.model.js";
+import bcrypt from "bcrypt";
 
 export default class UserRepository {
   static async findByEmail(email, selectPassword = false) {
@@ -10,4 +11,11 @@ export default class UserRepository {
     return user;
   }
 
+  static async createUser(data) {
+    const { password } = data;
+    const hashedPassword = await bcrypt.hash(password, 10);
+    const user = new UserModel({ ...data, password: hashedPassword });
+    delete user.password;
+    return user;
+  }
 }
