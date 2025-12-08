@@ -21,8 +21,6 @@
 		"api"
 	],
 	"scripts": {
-		"dev:front": "npm run dev --workspace frontend",
-		"dev:back": "npm run dev --workspace backend",
-		"dev": "concurrently \"npm run dev:front\" \"npm run dev:back\""
+		"serve": "npm run serve --workspace api"
 	}
 }
