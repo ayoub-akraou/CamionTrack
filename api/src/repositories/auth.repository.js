@@ -16,6 +16,7 @@ export default class UserRepository {
     const hashedPassword = await bcrypt.hash(password, 10);
     const user = new UserModel({ ...data, password: hashedPassword });
     delete user.password;
+    await user.save();
     return user;
   }
 }
