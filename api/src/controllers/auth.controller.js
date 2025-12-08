@@ -1,3 +1,5 @@
+import AuthService from "../services/auth.service";
+
 export default class AuthController {
   static async register(req, res) {
     try {
