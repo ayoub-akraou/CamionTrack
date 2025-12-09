@@ -4,6 +4,7 @@ import helmet from "helmet";
 import dotenv from "dotenv";
 import connectDB from "./config/db.js";
 import authRoutes from "./routes/auth.routes.js";
+import vehiclesRoutes from "./routes/vehicles.routes.js";
 
 dotenv.config();
 
@@ -18,6 +19,7 @@ app.use(helmet());
 
 // routes
 app.use("/api/auth", authRoutes);
+app.use("/api/vehicles", vehiclesRoutes);
 
 const PORT = process.env.PORT || 3000;
 app.listen(PORT, () => console.log(`Server running on port ${PORT}`));
