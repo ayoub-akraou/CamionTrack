@@ -11,4 +11,16 @@ export class VehicleController {
         .json({ success: false, message: error.message });
     }
   }
+
+  static async index(req, res) {
+    try {
+      const vehicles = await VehicleService.getAllVehicles();
+      res.json({ success: true, data: vehicles });
+    } catch (error) {
+      res
+        .status(error.statusCode || 500)
+        .json({ success: false, message: error.message });
+    }
+  }
+}
 }

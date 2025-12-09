@@ -5,4 +5,9 @@ export class VehicleRepository {
     const vehicle = new Vehicle(vehicleData);
     return await vehicle.save();
   }
+
+  static async findAll() {
+    return await Vehicle.find({}).sort({ createdAt: -1 });
+  }
+}
 }
