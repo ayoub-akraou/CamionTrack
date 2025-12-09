@@ -13,5 +13,12 @@ export class VehicleRepository {
   static async findById(id) {
     return await Vehicle.findById(id);
   }
- 
+
+  static async update(id, updateData) {
+    return await Vehicle.findByIdAndUpdate(id, updateData, {
+      new: true,
+      runValidators: true
+    });
+  }
+
 }

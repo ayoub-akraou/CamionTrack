@@ -39,4 +39,21 @@ export class VehicleController {
     }
   }
 
+  static async update(req, res) {
+    try {
+      const updatedVehicle = await VehicleService.updateVehicle(
+        req.params.id,
+        req.body
+      );
+      if (!updatedVehicle) {
+        return res
+          .status(404)
+          .json({ success: false, message: "Véhicule non trouvé" });
+      }
+      res.json({ success: true, data: updatedVehicle });
+    } catch (error) {
+      res.status(400).json({ success: false, message: error.message });
+    }
+  }
+
 }

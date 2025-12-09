@@ -12,5 +12,9 @@ export class VehicleService {
   static async getVehicleById(id) {
     return await VehicleRepository.findById(id);
   }
- 
+
+  static async updateVehicle(id, updateData) {
+    return await VehicleRepository.update(id, updateData);
+  }
+
 }
