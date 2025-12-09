@@ -62,4 +62,25 @@ export class TripController {
     }
   }
 
+  static async destroy(req, res) {
+    try {
+      const deletedTrip = await TripService.deleteTrip(req.params.id);
+      if (!deletedTrip) {
+        return res.status(error.statusCode || 500).json({
+          success: false,
+          message: "Trajet non trouvé",
+        });
+      }
+      res.json({
+        success: true,
+        message: "Trajet supprimé avec succès",
+      });
+    } catch (error) {
+      res.status(error.statusCode || 500).json({
+        success: false,
+        message: "Erreur lors de la suppression du trajet",
+      });
+    }
+  }
+
 }

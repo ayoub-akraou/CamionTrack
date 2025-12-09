@@ -30,6 +30,9 @@ export class TripRepository {
       .populate("vehicle", "plateNumber model");
   }
 
+  static async remove(id) {
+    return await Trip.findByIdAndDelete(id);
+  }
 
   static async findActiveTrips() {
     return await Trip.find({
