@@ -12,4 +12,17 @@ export class TripController {
       });
     }
   }
+
+  static async index(req, res) {
+    try {
+      const trips = await TripService.getAllTrips();
+      res.json({ success: true, data: trips });
+    } catch (error) {
+      res.status(error.statusCode || 500).json({
+        success: false,
+        message: "Erreur lors de la récupération des trajets",
+      });
+    }
+  }
+
 }

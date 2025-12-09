@@ -21,4 +21,8 @@ export class TripService {
     return await TripRepository.create(tripData);
   }
 
+  static async getAllTrips() {
+    return await TripRepository.findAll();
+  }
+
 }
