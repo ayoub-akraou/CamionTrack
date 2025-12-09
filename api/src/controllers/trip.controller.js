@@ -44,4 +44,22 @@ export class TripController {
     }
   }
 
+  static async update(req, res) {
+    try {
+      const updatedTrip = await TripService.updateTrip(req.params.id, req.body);
+      if (!updatedTrip) {
+        return res.status(error.statusCode || 500).json({
+          success: false,
+          message: "Trajet non trouvé",
+        });
+      }
+      res.json({ success: true, data: updatedTrip });
+    } catch (error) {
+      res.status(error.statusCode || 500).json({
+        success: false,
+        message: error.message || "Erreur lors de la mise à jour du trajet",
+      });
+    }
+  }
+
 }

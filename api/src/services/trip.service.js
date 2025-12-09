@@ -29,4 +29,8 @@ export class TripService {
     return await TripRepository.findById(id);
   }
 
+  static async updateTrip(id, updateData) {
+    return await TripRepository.update(id, updateData);
+  }
+
 }

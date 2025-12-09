@@ -21,6 +21,15 @@ export class TripRepository {
       .populate("vehicle", "plateNumber model");
   }
 
+  static async update(id, updateData) {
+    return await Trip.findByIdAndUpdate(id, updateData, {
+      new: true,
+      runValidators: true,
+    })
+      .populate("driver", "name email")
+      .populate("vehicle", "plateNumber model");
+  }
+
 
   static async findActiveTrips() {
     return await Trip.find({
