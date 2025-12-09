@@ -7,5 +7,6 @@ router.post("/", VehicleController.store);
 router.get("/", VehicleController.index);
 router.get("/:id", VehicleController.show);
 router.put("/:id", VehicleController.update);
+router.delete("/:id", VehicleController.destroy);
 
 export default router;

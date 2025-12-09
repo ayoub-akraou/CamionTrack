@@ -56,4 +56,19 @@ export class VehicleController {
     }
   }
 
+  static async destroy(req, res) {
+    try {
+      const deletedVehicle = await VehicleService.deleteVehicle(req.params.id);
+      if (!deletedVehicle) {
+        return res
+          .status(404)
+          .json({ success: false, message: "Véhicule non trouvé" });
+      }
+      res.json({ success: true, message: "Véhicule supprimé avec succès" });
+    } catch (error) {
+      res
+        .status(error.statusCode || 500)
+        .json({ success: false, message: error.message });
+    }
+  }
 }

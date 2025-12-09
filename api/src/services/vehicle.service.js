@@ -17,4 +17,7 @@ export class VehicleService {
     return await VehicleRepository.update(id, updateData);
   }
 
+  static async deleteVehicle(id) {
+    return await VehicleRepository.remove(id);
+  }
 }
