@@ -8,5 +8,9 @@ export class VehicleService {
   static async getAllVehicles() {
     return await VehicleRepository.findAll();
   }
-}
+
+  static async getVehicleById(id) {
+    return await VehicleRepository.findById(id);
+  }
+ 
 }

@@ -5,5 +5,6 @@ const router = express.Router();
 
 router.post("/", VehicleController.store);
 router.get("/", VehicleController.index);
+router.get("/:id", VehicleController.show);
 
 export default router;

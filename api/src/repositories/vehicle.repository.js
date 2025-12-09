@@ -9,5 +9,9 @@ export class VehicleRepository {
   static async findAll() {
     return await Vehicle.find({}).sort({ createdAt: -1 });
   }
-}
+
+  static async findById(id) {
+    return await Vehicle.findById(id);
+  }
+ 
 }
