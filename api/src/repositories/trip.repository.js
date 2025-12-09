@@ -15,6 +15,13 @@ export class TripRepository {
       .sort({ createdAt: -1 });
   }
 
+  static async findById(id) {
+    return await Trip.findById(id)
+      .populate("driver", "name email")
+      .populate("vehicle", "plateNumber model");
+  }
+
+
   static async findActiveTrips() {
     return await Trip.find({
       status: { $in: ["planned", "in_progress"] },

@@ -25,4 +25,23 @@ export class TripController {
     }
   }
 
+  static async show(req, res) {
+    try {
+      const trip = await TripService.getTripById(req.params.id);
+
+      if (!trip) {
+        return res.status(error.statusCode || 500).json({
+          success: false,
+          message: "Trajet non trouvé",
+        });
+      }
+      res.json({ success: true, data: trip });
+    } catch (error) {
+      res.status(error.statusCode || 500).json({
+        success: false,
+        message: error.message || "Erreur lors de la récupération du trajet",
+      });
+    }
+  }
+
 }

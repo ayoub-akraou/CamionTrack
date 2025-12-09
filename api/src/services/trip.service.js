@@ -25,4 +25,8 @@ export class TripService {
     return await TripRepository.findAll();
   }
 
+  static async getTripById(id) {
+    return await TripRepository.findById(id);
+  }
+
 }
