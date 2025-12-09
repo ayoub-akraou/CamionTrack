@@ -33,15 +33,26 @@ const tripSchema = new Schema(
     timestamps: true,
     toJSON: {
       transform: (_, ret) => {
-        ret.id = ret._id;
+        ret.id = ret._id.toString();
         delete ret._id;
+
+        if (ret.driver && !ret.driver.id) ret.driver = ret.driver.toString();
+        if (ret.vehicle && !ret.vehicle.id)
+          ret.vehicle = ret.vehicle.toString();
+
         return ret;
       },
     },
     toObject: {
+      virtuals: true,
       transform: (_, ret) => {
-        ret.id = ret._id;
+        ret.id = ret._id.toString();
         delete ret._id;
+
+        if (ret.driver && !ret.driver.id) ret.driver = ret.driver.toString();
+        if (ret.vehicle && !ret.vehicle.id)
+          ret.vehicle = ret.vehicle.toString();
+
         return ret;
       },
     },
