@@ -42,9 +42,10 @@ export class TripService {
   }
 
   static async getDriverTrips(driverId) {
-    return await TripRepository.find({ driver: driverId }).sort({
-      plannedStart: -1,
-    });
+    return await TripRepository.getDriverTrips(driverId);
   }
 
+  static async getVehicleTrips(vehicleId) {
+    return await TripRepository.getVehicleTrips(vehicleId);
+  }
 }

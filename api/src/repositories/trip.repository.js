@@ -55,4 +55,10 @@ export class TripRepository {
       plannedStart: -1,
     });
   }
+
+  static async getVehicleTrips(vehicleId) {
+    return await Trip.find({ vehicle: vehicleId }).sort({
+      plannedStart: -1,
+    });
+  }
 }

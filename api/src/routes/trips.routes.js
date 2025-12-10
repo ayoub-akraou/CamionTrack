@@ -14,5 +14,7 @@ router.patch("/:id/status", TripController.updateStatus);
 
 // get driver trips
 router.get("/driver/:driverId", TripController.getDriverTrips);
+// get vehicle trips
+router.get("/vehicle/:vehicleId", TripController.getVehicleTrips);
 
 export default router;

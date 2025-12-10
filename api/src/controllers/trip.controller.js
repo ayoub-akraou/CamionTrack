@@ -117,4 +117,15 @@ export class TripController {
     }
   }
 
+  static async getVehicleTrips(req, res) {
+    try {
+      const trips = await TripService.getVehicleTrips(req.params.vehicleId);
+      res.json({ success: true, data: trips });
+    } catch (error) {
+      res.status(error.statusCode || 500).json({
+        success: false,
+        message: "Erreur lors de la récupération des trajets du véhicule",
+      });
+    }
+  }
 }
