@@ -3,8 +3,6 @@ import Trip from "../models/trip.model.js";
 export class TripRepository {
   static async create(tripData) {
     const trip = new Trip(tripData);
-    console.log(trip);
-
     return await trip.save();
   }
 
@@ -40,4 +38,15 @@ export class TripRepository {
     })
       .populate("driver", "name email")
       .populate("vehicle", "plateNumber model");
+  }
+
+  static async updateTripStatus(id, status) {
+    return await Trip.findByIdAndUpdate(
+      id,
+      { status },
+      { new: true, runValidators: true }
+    )
+      .populate("driver", "name email")
+      .populate("vehicle", "plateNumber model");
+  }
 }

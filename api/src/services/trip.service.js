@@ -37,4 +37,8 @@ export class TripService {
     return await TripRepository.remove(id);
   }
 
+  static async updateTripStatus(id, status) {
+    return await TripRepository.updateTripStatus(id, status);
+  }
+
 }

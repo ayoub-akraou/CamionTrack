@@ -8,5 +8,8 @@ router.get("/", TripController.index);
 router.get("/:id", TripController.show);
 router.put("/:id", TripController.update);
 router.delete("/:id", TripController.destroy);
+// update status
+router.patch("/:id/status", TripController.updateStatus);
+
 
 export default router;

@@ -83,4 +83,26 @@ export class TripController {
     }
   }
 
+  static async updateStatus(req, res) {
+    try {
+      const { status } = req.body;
+      const updatedTrip = await TripService.updateTripStatus(
+        req.params.id,
+        status
+      );
+      if (!updatedTrip) {
+        return res.status(error.statusCode || 500).json({
+          success: false,
+          message: "Trajet non trouvé",
+        });
+      }
+      res.json({ success: true, data: updatedTrip });
+    } catch (error) {
+      res.status(error.statusCode || 500).json({
+        success: false,
+        message: error.message || "Erreur lors de la mise à jour du statut",
+      });
+    }
+  }
+
 }
