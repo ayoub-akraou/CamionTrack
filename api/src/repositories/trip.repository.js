@@ -49,4 +49,10 @@ export class TripRepository {
       .populate("driver", "name email")
       .populate("vehicle", "plateNumber model");
   }
+
+  static async getDriverTrips(driverId) {
+    return await Trip.find({ driver: driverId }).sort({
+      plannedStart: -1,
+    });
+  }
 }

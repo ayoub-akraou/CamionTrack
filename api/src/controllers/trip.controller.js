@@ -105,4 +105,16 @@ export class TripController {
     }
   }
 
+  static async getDriverTrips(req, res) {
+    try {
+      const trips = await TripService.getDriverTrips(req.params.driverId);
+      res.json({ success: true, data: trips });
+    } catch (error) {
+      res.status(error.statusCode || 500).json({
+        success: false,
+        message: "Erreur lors de la récupération des trajets du conducteur",
+      });
+    }
+  }
+
 }

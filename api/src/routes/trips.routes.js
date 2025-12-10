@@ -8,8 +8,11 @@ router.get("/", TripController.index);
 router.get("/:id", TripController.show);
 router.put("/:id", TripController.update);
 router.delete("/:id", TripController.destroy);
+
 // update status
 router.patch("/:id/status", TripController.updateStatus);
 
+// get driver trips
+router.get("/driver/:driverId", TripController.getDriverTrips);
 
 export default router;

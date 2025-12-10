@@ -41,4 +41,10 @@ export class TripService {
     return await TripRepository.updateTripStatus(id, status);
   }
 
+  static async getDriverTrips(driverId) {
+    return await TripRepository.find({ driver: driverId }).sort({
+      plannedStart: -1,
+    });
+  }
+
 }
