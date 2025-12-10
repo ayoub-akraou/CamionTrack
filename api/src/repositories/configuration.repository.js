@@ -10,6 +10,21 @@ class ConfigurationRepository {
     return config;
   }
 
+  static async updateConfiguration(updateData) {
+    let config = await Configuration.findOne();
+
+    if (!config) {
+      config = await Configuration.create(updateData);
+    } else {
+      config = await Configuration.findOneAndUpdate(
+        {}, // filter
+        updateData,
+        { new: true, runValidators: true }
+      );
+    }
+
+    return config;
+  }
 }
 
 export default ConfigurationRepository;

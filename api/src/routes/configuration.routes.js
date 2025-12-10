@@ -6,5 +6,6 @@ const router = Router();
 // router.use(authMiddleware);
 
 router.get("/", configController.getConfiguration);
+router.patch("/", configController.updateConfiguration);
 
 export default router;
