@@ -11,6 +11,16 @@ export class VehicleController {
     res.json({ success: true, data: vehicles });
   }
 
+  static async getAvailablesVehicles(req, res) {
+    const vehicles = await VehicleService.getAvailablesVehicles();
+    res.json({ success: true, data: vehicles });
+  }
+
+  static async getOnTripVehicles(req, res) {
+    const vehicles = await VehicleService.getOnTripVehicles();
+    res.json({ success: true, data: vehicles });
+  }
+
   static async show(req, res) {
     const vehicle = await VehicleService.getVehicleById(req.params.id);
 

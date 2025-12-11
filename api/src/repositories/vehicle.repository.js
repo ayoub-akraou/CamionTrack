@@ -10,6 +10,14 @@ export class VehicleRepository {
     return await Vehicle.find({}).sort({ createdAt: -1 });
   }
 
+  static async getAvailablesVehicles() {
+    return await Vehicle.find({ status: "available" }).sort({ createdAt: -1 });
+  }
+
+  static async getOnTripVehicles() {
+    return await Vehicle.find({ status: "on_trip" }).sort({ createdAt: -1 });
+  }
+
   static async findById(id) {
     return await Vehicle.findById(id);
   }

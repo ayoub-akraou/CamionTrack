@@ -9,6 +9,14 @@ export class VehicleService {
     return await VehicleRepository.findAll();
   }
 
+  static async getAvailablesVehicles() {
+    return await VehicleRepository.getAvailablesVehicles();
+  }
+
+  static async getOnTripVehicles() {
+    return await VehicleRepository.getOnTripVehicles();
+  }
+
   static async getVehicleById(id) {
     return await VehicleRepository.findById(id);
   }
