@@ -58,6 +58,11 @@ export class TripController {
     });
   }
 
+  static async endTrip(req, res) {
+    const updatedTrip = await TripService.endTrip(req.params.id);
+    res.json({ success: true, data: updatedTrip });
+  }
+
   static async updateStatus(req, res) {
     const { status } = req.body;
     const updatedTrip = await TripService.updateTripStatus(

@@ -32,6 +32,30 @@ export class TripRepository {
     return await Trip.findByIdAndDelete(id);
   }
 
+  static async endTrip(id) {
+    const trip = await Trip.findById(id).populate("driver").populate("vehicle");
+    if (!trip) throw new Error("Trip introuvable");
+
+    trip.status = "completed";
+    trip.actualEnd = new Date();
+
+    const saves = [];
+
+    if (trip.driver) {
+      trip.driver.status = "available";
+      saves.push(trip.driver.save());
+    }
+
+    if (trip.vehicle) {
+      trip.vehicle.status = "available";
+      saves.push(trip.vehicle.save());
+    }
+
+    saves.push(trip.save());
+
+    return await Promise.all(saves);
+  }
+
   static async findActiveTrips() {
     return await Trip.find({
       status: { $in: ["planned", "in_progress"] },

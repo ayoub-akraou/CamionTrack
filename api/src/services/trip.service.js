@@ -37,6 +37,16 @@ export class TripService {
     return await TripRepository.remove(id);
   }
 
+  static async endTrip(id) {
+    const updatedTrip = await TripRepository.endTrip(id);
+
+    if (!updatedTrip) {
+      throw new AppError("Trajet non trouvé", 404);
+    }
+
+    return updatedTrip;
+  }
+
   static async updateTripStatus(id, status) {
     return await TripRepository.updateTripStatus(id, status);
   }

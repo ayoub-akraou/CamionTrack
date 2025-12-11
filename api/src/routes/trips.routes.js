@@ -9,7 +9,8 @@ router.get("/", catchAsync(TripController.index));
 router.get("/:id", catchAsync(TripController.show));
 router.put("/:id", catchAsync(TripController.update));
 router.delete("/:id", catchAsync(TripController.destroy));
-
+// end trip
+router.patch("/:id/end", catchAsync(TripController.endTrip));
 // update status
 router.patch("/:id/status", catchAsync(TripController.updateStatus));
 
