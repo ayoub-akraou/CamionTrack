@@ -6,6 +6,11 @@ const userShema = new Schema(
     email: { type: String, required: true, unique: true },
     password: { type: String, required: true },
     role: { type: String, enum: ["driver", "admin"], default: "driver" },
+    status: {
+      type: String,
+      enum: ["available", "on_trip"],
+      default: "available",
+    },
   },
   {
     timestamps: true,
