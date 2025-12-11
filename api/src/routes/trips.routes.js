@@ -1,6 +1,6 @@
 import express from "express";
 import { TripController } from "../controllers/trip.controller.js";
-import catchAsync from "../catchAsync.js";
+import catchAsync from "../utils/catchAsync.js";
 import authorize from "../middleware/authorization.middleware.js";
 const router = express.Router();
 

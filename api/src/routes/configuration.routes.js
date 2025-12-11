@@ -1,6 +1,6 @@
 import { Router } from "express";
 import configController from "../controllers/configuration.controller.js";
-import catchAsync from "../catchAsync.js";
+import catchAsync from "../utils/catchAsync.js";
 import authorize from "../middleware/authorization.middleware.js";
 const router = Router();
 

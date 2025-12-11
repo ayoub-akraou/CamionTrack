@@ -1,6 +1,6 @@
 import express from "express";
 import { VehicleController } from "../controllers/vehicle.controller.js";
-import catchAsync from "../catchAsync.js";
+import catchAsync from "../utils/catchAsync.js";
 const router = express.Router();
 
 router.post("/", catchAsync(VehicleController.store));
