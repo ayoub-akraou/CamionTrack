@@ -1,20 +1,20 @@
 import express from "express";
 import { TripController } from "../controllers/trip.controller.js";
-
+import catchAsync from "../catchAsync.js";
 const router = express.Router();
 
-router.post("/", TripController.store);
-router.get("/", TripController.index);
-router.get("/:id", TripController.show);
-router.put("/:id", TripController.update);
-router.delete("/:id", TripController.destroy);
+router.post("/", catchAsync(TripController.store));
+router.get("/", catchAsync(TripController.index));
+router.get("/:id", catchAsync(TripController.show));
+router.put("/:id", catchAsync(TripController.update));
+router.delete("/:id", catchAsync(TripController.destroy));
 
 // update status
-router.patch("/:id/status", TripController.updateStatus);
+router.patch("/:id/status", catchAsync(TripController.updateStatus));
 
 // get driver trips
-router.get("/driver/:driverId", TripController.getDriverTrips);
+router.get("/driver/:driverId", catchAsync(TripController.getDriverTrips));
 // get vehicle trips
-router.get("/vehicle/:vehicleId", TripController.getVehicleTrips);
+router.get("/vehicle/:vehicleId", catchAsync(TripController.getVehicleTrips));
 
 export default router;

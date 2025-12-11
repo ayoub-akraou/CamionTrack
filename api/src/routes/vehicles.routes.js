@@ -1,12 +1,12 @@
 import express from "express";
 import { VehicleController } from "../controllers/vehicle.controller.js";
-
+import catchAsync from "../catchAsync.js";
 const router = express.Router();
 
-router.post("/", VehicleController.store);
-router.get("/", VehicleController.index);
-router.get("/:id", VehicleController.show);
-router.put("/:id", VehicleController.update);
-router.delete("/:id", VehicleController.destroy);
+router.post("/", catchAsync(VehicleController.store));
+router.get("/", catchAsync(VehicleController.index));
+router.get("/:id", catchAsync(VehicleController.show));
+router.put("/:id", catchAsync(VehicleController.update));
+router.delete("/:id", catchAsync(VehicleController.destroy));
 
 export default router;
