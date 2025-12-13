@@ -1,5 +1,5 @@
 import { TripService } from "../services/trip.service.js";
-import emailService from "../services/email.service.js";
+import { sendEmail } from "../services/email.service.js";
 
 export class TripController {
   static async store(req, res) {
@@ -42,7 +42,7 @@ export class TripController {
         };
 
         try {
-          await emailService.sendEmail(emailContent);
+          await sendEmail(emailContent);
           console.log("Email d'assignation envoyé avec succès");
         } catch (error) {
           // Supprimer le trajet en cas d'échec d'envoi d'email
