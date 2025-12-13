@@ -19,4 +19,8 @@ export default class UserRepository {
     await user.save();
     return user;
   }
+
+  static async findAllByRole(role) {
+    return await UserModel.find({ role }).select("-password");
+  }
 }
