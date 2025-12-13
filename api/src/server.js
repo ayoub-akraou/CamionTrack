@@ -7,7 +7,7 @@ import authRoutes from "./routes/auth.routes.js";
 import vehiclesRoutes from "./routes/vehicles.routes.js";
 import tripsRoutes from "./routes/trips.routes.js";
 import configRoutes from "./routes/configuration.routes.js";
-import { authenticate } from "./middleware/auth.middleware.js";
+import { authenticate } from "./middlewares/auth.middleware.js";
 
 dotenv.config();
 

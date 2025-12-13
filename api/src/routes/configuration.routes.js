@@ -1,7 +1,7 @@
 import { Router } from "express";
 import configController from "../controllers/configuration.controller.js";
 import catchAsync from "../utils/catchAsync.js";
-import authorize from "../middleware/authorization.middleware.js";
+import authorize from "../middlewares/authorization.middleware.js";
 const router = Router();
 
 router.get("/", catchAsync(configController.getConfiguration));

@@ -1,7 +1,7 @@
 import express from "express";
 import { TripController } from "../controllers/trip.controller.js";
 import catchAsync from "../utils/catchAsync.js";
-import authorize from "../middleware/authorization.middleware.js";
+import authorize from "../middlewares/authorization.middleware.js";
 const router = express.Router();
 
 router.post("/", authorize("admin"), catchAsync(TripController.store));
