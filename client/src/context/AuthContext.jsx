@@ -1,4 +1,5 @@
 import { createContext, useState, useEffect, useContext } from 'react';
+import AuthService from '../services/auth.service';
 
 const AuthContext = createContext(null);
 
@@ -11,6 +12,17 @@ export function AuthProvider({ children }) {
     setUser(currentUser);
     setLoading(false);
   }, []);
+
+  const login = async (email, password) => {
+    const data = await AuthService.login(email, password);
+    setUser(data.user);
+    return data;
+  };
+
+  const logout = () => {
+    AuthService.logout();
+    setUser(null);
+  };
 
   return (
     <AuthContext.Provider value={{ user, login, logout, loading }}>
