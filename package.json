@@ -21,6 +21,7 @@
 		"api"
 	],
 	"scripts": {
-		"serve": "npm run serve --workspace api"
+		"serve": "npm run serve --workspace api",
+		"dev": "npm run dev --workspace client"
 	}
 }
