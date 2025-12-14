@@ -9,6 +9,11 @@ const login = async (email, password) => {
   return response.data.data;
 };
 
+const register = async (userData) => {
+  const response = await api.post('/auth/register', userData);
+  return response.data.data;
+};
+
 const logout = () => {
   localStorage.removeItem('token');
   localStorage.removeItem('user');
@@ -27,6 +32,7 @@ const getDrivers = async () => {
 
 export default {
   login,
+  register,
   logout,
   getCurrentUser,
   getDrivers,
