@@ -3,6 +3,7 @@ import { AuthProvider } from './context/AuthContext';
 import Login from './pages/Login';
 import Register from './pages/Register';
 import Layout from './components/Layout';
+import Trucks from './pages/admin/Trucks';
 import PrivateRoute from './components/PrivateRoute';
 
 function App() {
@@ -16,6 +17,7 @@ function App() {
           
           <Route element={<PrivateRoute allowedRoles={['admin']} />}>
             <Route path="/admin" element={<Layout />}>
+              <Route path="trucks" element={<Trucks />} />
             </Route>
           </Route>
           <Route element={<PrivateRoute allowedRoles={['driver']} />}>
