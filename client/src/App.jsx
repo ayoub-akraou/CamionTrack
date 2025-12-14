@@ -1,4 +1,4 @@
-import { BrowserRouter as Router, Routes, Route } from 'react-router-dom';
+import { BrowserRouter as Router, Routes, Route, Navigate } from 'react-router-dom';
 import { AuthProvider } from './context/AuthContext';
 import Login from './pages/Login';
 import Register from './pages/Register';
@@ -18,6 +18,7 @@ function App() {
           
           <Route element={<PrivateRoute allowedRoles={['admin']} />}>
             <Route path="/admin" element={<Layout />}>
+              <Route index element={<Navigate to="/admin/trucks" replace />} />
               <Route path="trucks" element={<Trucks />} />
               <Route path="trailers" element={<Trailers />} />
             </Route>
