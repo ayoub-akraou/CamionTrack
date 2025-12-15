@@ -4,6 +4,7 @@ import { useAuth } from '../context/AuthContext';
 import { Map, Calendar, Truck, CheckCircle, Play, XCircle, Clock, FileText } from 'lucide-react';
 import clsx from 'clsx';
 import TripCompletionModal from '../components/TripCompletionModal';
+import { generateTripPDF } from '../utils/pdfGenerator';
 
 const DriverDashboard = () => {
   const { user } = useAuth();
@@ -113,7 +114,7 @@ const DriverDashboard = () => {
                     </button>
                   )}
                   <button
-                    onClick={() => alert('Téléchargement du PDF... (Fonctionnalité à venir)')}
+                    onClick={() => generateTripPDF(trip)}
                     className="flex items-center gap-1 px-3 py-1 bg-gray-100 text-gray-700 rounded hover:bg-gray-200 text-sm"
                   >
                     <FileText className="h-4 w-4" /> PDF
