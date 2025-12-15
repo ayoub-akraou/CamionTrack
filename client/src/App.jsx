@@ -6,6 +6,7 @@ import Layout from './components/Layout';
 import Trucks from './pages/admin/Trucks';
 import Trailers from './pages/admin/Trailers';
 import Trips from './pages/admin/Trips';
+import Configuration from './pages/admin/Configuration';
 import PrivateRoute from './components/PrivateRoute';
 
 function App() {
@@ -23,8 +24,10 @@ function App() {
               <Route path="trucks" element={<Trucks />} />
               <Route path="trailers" element={<Trailers />} />
               <Route path="trips" element={<Trips />} />
+              <Route path="config" element={<Configuration />} />
             </Route>
           </Route>
+
           <Route element={<PrivateRoute allowedRoles={['driver']} />}>
             <Route path="/driver" element={<Layout />}>
             </Route>
