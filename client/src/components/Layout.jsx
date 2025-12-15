@@ -16,7 +16,7 @@ function Layout() {
 
   const driverLinks = [
     { name: 'Mes Trajets', path: '/driver', icon: Map },
-    { name: 'Rapports', path: '/driver/reports', icon: FileText },
+    // { name: 'Rapports', path: '/driver/reports', icon: FileText },
   ];
 
   const links = user?.role === 'admin' ? adminLinks : driverLinks;
