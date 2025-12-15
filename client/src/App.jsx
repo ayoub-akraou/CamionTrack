@@ -5,6 +5,7 @@ import Register from './pages/Register';
 import Layout from './components/Layout';
 import Trucks from './pages/admin/Trucks';
 import Trailers from './pages/admin/Trailers';
+import Trips from './pages/admin/Trips';
 import PrivateRoute from './components/PrivateRoute';
 
 function App() {
@@ -21,6 +22,7 @@ function App() {
               <Route index element={<Navigate to="/admin/trucks" replace />} />
               <Route path="trucks" element={<Trucks />} />
               <Route path="trailers" element={<Trailers />} />
+              <Route path="trips" element={<Trips />} />
             </Route>
           </Route>
           <Route element={<PrivateRoute allowedRoles={['driver']} />}>
