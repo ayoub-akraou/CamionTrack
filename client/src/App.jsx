@@ -7,6 +7,7 @@ import Trucks from './pages/admin/Trucks';
 import Trailers from './pages/admin/Trailers';
 import Trips from './pages/admin/Trips';
 import Configuration from './pages/admin/Configuration';
+import DriverDashboard from './pages/DriverDashboard';
 import PrivateRoute from './components/PrivateRoute';
 
 function App() {
@@ -30,6 +31,7 @@ function App() {
 
           <Route element={<PrivateRoute allowedRoles={['driver']} />}>
             <Route path="/driver" element={<Layout />}>
+              <Route index element={<DriverDashboard />} />
             </Route>
           </Route>
         </Routes>
