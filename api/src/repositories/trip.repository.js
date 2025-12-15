@@ -77,12 +77,16 @@ export class TripRepository {
   static async getDriverTrips(driverId) {
     return await Trip.find({ driver: driverId }).sort({
       plannedStart: -1,
-    });
+    })
+      .populate("driver", "name email")
+      .populate("vehicle", "plateNumber model");
   }
 
   static async getVehicleTrips(vehicleId) {
     return await Trip.find({ vehicle: vehicleId }).sort({
       plannedStart: -1,
-    });
+    })
+      .populate("driver", "name email")
+      .populate("vehicle", "plateNumber model");
   }
 }
