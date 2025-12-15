@@ -26,7 +26,7 @@ const getCurrentUser = () => {
 };
 
 const getDrivers = async () => {
-  const response = await api.get('/auth/');
+  const response = await api.get('/drivers/');
   return response.data.data;
 };
 
