@@ -1,0 +1,34 @@
+version: '3.8'
+
+services:
+  mongo:
+    image: mongo:latest
+    container_name: camiontrack-mongo
+    ports:
+      - "27017:27017"
+    volumes:
+      - mongo-data:/data/db
+
+  api:
+    build: ./api
+    container_name: camiontrack-api
+    ports:
+      - "5000:5000"
+    environment:
+      - MONGO_URI=mongodb://mongo:27017/camiontrack
+      - PORT=5000
+      - JWT_SECRET=super_secret_jwt_key_docker
+      - NODE_ENV=production
+    depends_on:
+      - mongo
+
+  client:
+    build: ./client
+    container_name: camiontrack-client
+    ports:
+      - "8080:80"
+    depends_on:
+      - api
+
+volumes:
+  mongo-data:
